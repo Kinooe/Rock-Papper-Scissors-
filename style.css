@@ -1,0 +1,39 @@
+html{
+    background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.f5UKerbG-qqrVBAUAFLKfwHaEK%26pid%3DApi&f=1);
+}
+.btn{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    
+   
+    
+}
+
+button{
+    
+    font-family:"WorkSans-VariableFont_wght.ttf";
+    font-size: 25px;
+    margin: 50px;
+    text-align: end;
+    justify-content: left;
+    text-align: right;
+    border:4em solid rgba(0, 3, 46, 1);
+    border-radius: 3em;
+    box-shadow: 0 0 1rem #ffc600;
+
+
+
+}
+.log{
+    display: inline-block;
+    width: 1000px;
+    height: 350px;
+    margin-left: 100px;
+    border: solid;
+}
+
+/*edit rps in css for better aesthetichs

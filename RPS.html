@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Page Title</title>
+  
+  <link href=style.css rel="stylesheet" type="text/css">
   <meta charset="UTF-8"/>
 </head>
+<div class="btn">
+    <button id="rock" >Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+</div>
+<div class="log"></div>
 <body>
   <script>
     // Your JavaScript goes here!
@@ -21,83 +28,96 @@
             return "scissors";
         }
     }
-     
-     function singleRound(computerSel,playerSel) {
-        if (computerSel=="rock"&& playerSel=="scissors")
-        {
+    // edit so prompt is now button
+function createDivs(text){
+    const logs=document.getElementsByClassName("log");
+    log=logs[0];
+    let score=document.createElement("div");
+    score.textContent=(text)
+    score.style.color="white";
+    score.className=log;
+     log.appendChild(score);
+}
+/// ADD DIV's to the the Winner loser tab
+//create winner loser tab
+//
+//
+    function choice(){
+    let playerscore=0;
+    var computerScore=0;
+    const btn=document.querySelector("div");
+    let score=document.createElement("p");
+    const choices = document.querySelectorAll('button')
+    choices.forEach(choice => choice.addEventListener('click', function (e){
+    let playerSel= choice.textContent.toString()
+    let computerSel=computerPlay();
+    
+    
+        if (computerSel=="rock"&& playerSel=="Scissors")
+        { 
            console.log("You Lose!,Rock beats Scissors")
-           return "loser";
+           computerScore+=1;
         }
-        else if(computerSel=="scissors" && playerSel=="rock"){
+        else if(computerSel=="scissors" && playerSel=="Rock"){
+            
             console.log("You Win!,Rock beats Scissors");
-            return "winner";
+            playerscore+=1;
         }
-        else if(computerSel=="rock" && playerSel=="paper"){
+        else if(computerSel=="rock" && playerSel=="Paper"){
+            
             console.log("You Win!,Paper beats Rock");
-            return "winner";
+            playerscore+=1;
         }
-        else if (computerSel=="paper" && playerSel=="rock")
+        else if (computerSel=="paper" && playerSel=="Rock")
         {
+            
             console.log("You Lose!,Paper beats Rock");
-            return "loser";
+            computerScore+1;
         }
-        else if(computerSel=="scissors"&& playerSel=="paper"){
+        else if(computerSel=="scissors"&& playerSel=="Paper"){
             console.log("You lose! Scissors beats Paper");
-            return "loser";
+            computerScore+=1;
         }
-        else if(computerSel=="paper" && playerSel=="sciossors"){
+        else if(computerSel=="paper" && playerSel=="Scissors"){
             console.log("You win! Scissors beats Paper");
-            return "winner";
+            playerscore+=1;
         }
         else{
             console.log("Its a draw!");
-            return "neither";
-        }
-         
-     }
-     function playerSel() {
-         let x = prompt("Rock Papper or Scissors?");
-         let y=x.toLowerCase();
-         if (y=="rock"){
-             return "rock";
-         }
-         else if (y=="paper"){
-             return "paper";
-         }
-         else if (y=="scissors"){
-             return "scissors";
-         }
-         
-     }
-     
-     
-     function game() {
-       var cps=0;
-       var pls=0;
-         for (let i=0;i<5;i++){
-        let z=(singleRound(computerPlay(),playerSel()));
-        alert(z);
-        if (z=="winner") {
-            pls++;
             
+        }   
+        
+        let f=`Your score:${playerscore} Computer's Score:${computerScore}`;
+        createDivs(f)
+        if (playerscore==5 && computerScore<5){
+            console.log("You're A Winner :D")
+            let text="You're A Winner :D"
+            createDivs(text);
+            playerscore=0;
+            computerScore=0;
+            return playerscore,computerScore;
         }
-        else if(z=="loser"){
-             cps++;
+        else if(computerScore==5 && playerscore<5){
+            console.log("Your're A loser lol");
+            let text="You're A Loser lol"
+            createDivs(text);
+        
+            playerscore=0;
+            computerScore=0;
+            return playerscore,computerScore;
         }
-        }
-        if (cps>pls){
-            return "Computer has won the Match";
-        }
-        else if(pls>cps){
-            return "Player has won the Match";
-        }
-        else{
-            return "Its a draw";
-        }
-         }
-    console.log(game());
+            
+            }
+           )
+         )
+         
+        
+    }
     
     
+    
+
+    console.log(choice())
   </script>
 </body>
 </html>
